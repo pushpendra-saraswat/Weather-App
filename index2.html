@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherUPdate</title>
+    <link rel="stylesheet" href="index2.css">
+</head>
+<body>
+  <div id="desp">
+    <p>the temp of city <%=cityname%> is <%=celci %></p>
+    <p id="description"></p>  
+ 
+  </div>
+  <script>
+     fetch('/')
+      
+      .then(data => {
+        document.getElementById('temperature').textContent = `Temperature: ${data.temp}°C`;
+        //document.getElementById('humidity').textContent = `Humidity: ${data.humidity}%`;
+        document.getElementById('description').textContent = `Description: ${data.description}`;
+        
+      })
+      .catch(error => {
+        console.error('error occured', error);
+      });
+  </script>  
+</body>
+</html>
